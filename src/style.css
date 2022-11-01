@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.head {
+    width: 100%;
+    height: 15%;
+    background-color: rgb(19, 26, 35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    height: 85%;
+}
+
+.sidebar {
+    width: 20%;
+    height: 100%;
+    background-color: rgb(117, 124, 134);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    width: 80%;
+    height: 100%;
+    background-color: rgb(252, 252, 252);
+}
+
+#main-tabs {
+    margin-top: 8%;
+    height: 30%;
+    width: 80%;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2%;
+  
+}
+
+#main-tabs > div {
+   
+    display: grid;
+    grid-template-columns: 10% auto;
+   
+
+}
+
+.main-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.main-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.main-tab {
+    border-radius: 4px;
+}
+.main-tab:hover {
+    background-color: rgb(80, 83, 85);
+    cursor: pointer;
+}
+
+#projects {
+    width: 90%;
+    height: 62%;
+    margin-top: 4%;
+    padding-left: 4%;
+   
+}
+
+#addProject {
+    margin-left: 6%;
+    margin-top: 6%;
+    color: white;
+    border-radius: 5px;
+    height: 7%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 4px;
+}
+
+#addProject:hover {
+    background-color: rgb(80, 83, 85);
+    cursor: pointer;
+}
+
+.newProject {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    height: 12%;
+    width: 95%;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 4px;
+}
+
+
+
+.labelDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.cancel:hover {
+    background-color: rgb(80, 83, 85);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+hr {
+    color: white;
+    width: 80%;
+    
+}
+
+.form-container {
+    background-color: black;
+    width: 90%;
+    height: 15%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.form-container > input {
+    width: 80%;
+    height: 50%;
+    border-radius: 4px;
+    display: flex;
+    padding-left: 5%;
+}
+
+.project-buttons{
+    height: 50%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#project-check {
+    background-color: green;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+#project-cancel {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
