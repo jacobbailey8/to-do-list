@@ -1,4 +1,5 @@
 import Icon from './hammer.png';
+import populateModule from './populateModule';
 
 export default function addProject(project) {
     const projects = document.getElementById('projects');
@@ -11,8 +12,13 @@ export default function addProject(project) {
     icon.src = Icon;
     imgDiv.classList.add('icon');
     imgDiv.appendChild(icon);
+
     let labelDiv = document.createElement('div');
     labelDiv.classList.add('labelDiv');
+    labelDiv.addEventListener('click', () => {
+        populateModule(project);
+    })
+
     labelDiv.innerHTML = project.name;
     let cancelBtn = document.createElement('div');
     cancelBtn.innerHTML = 'x'

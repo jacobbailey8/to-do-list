@@ -1,6 +1,6 @@
 export default class Inbox {
-    constructor(name){
-        this.name = name;
+    constructor(){
+        this.name = 'Inbox';
         this.taskArray = [];
     }
 
