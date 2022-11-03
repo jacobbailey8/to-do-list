@@ -8,8 +8,9 @@ export default class Inbox {
         this.taskArray.push(task);
     }
 
-    removeTask(index){
-        this.taskArray.splice(index, 1);
+    removeProject(name){
+        let result = this.taskArray.filter(task => task.projectName != name);
+        this.taskArray = result;
     }
 
     showInbox(){

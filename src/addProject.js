@@ -1,3 +1,4 @@
+import { inbox } from '.';
 import Icon from './hammer.png';
 import populateModule from './populateModule';
 
@@ -31,6 +32,8 @@ export default function addProject(project) {
     projects.insertBefore(newProject, projects.children[1]);
     cancelBtn.addEventListener('click', () => {
         projects.removeChild(newProject);
+        inbox.removeProject(project.name);
+        populateModule(inbox);
     });
 }
 

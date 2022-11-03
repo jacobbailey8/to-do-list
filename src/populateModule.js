@@ -1,3 +1,5 @@
+import { inbox } from ".";
+import Inbox from "./inbox";
 import Task from "./task";
 
 export default function populateModule(project){
@@ -11,7 +13,10 @@ export default function populateModule(project){
         
         let add_btn = document.createElement('button');
         add_btn.addEventListener('click', () => {
-            project.addTask(new Task(input.value, '', 11, 'none'));
+            let newTask1 = new Task(input.value, '', 11, 'none', project.name);
+            let newTask2 = new Task(input.value, '', 11, 'none', project.name);
+            inbox.addTask(newTask1);
+            project.addTask(newTask2);
             let taskGrid = document.querySelector('.taskGrid');
             taskGrid.removeChild(form);
             populateModule(project);
@@ -103,5 +108,8 @@ export default function populateModule(project){
     addTaskBtn.appendChild(plusSign);
     addTaskBtn.appendChild(addTaskText);
 
-    taskGrid.appendChild(addTaskBtn);
+    if (project.name != "Inbox"){
+        taskGrid.appendChild(addTaskBtn);
+    }
+    
 }
