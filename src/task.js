@@ -1,3 +1,4 @@
+import format from 'date-fns/format'
 export default class Task {
 
     constructor(name, description, dueDate, priority, projectName){
@@ -34,5 +35,18 @@ export default class Task {
     }
     setPriority(newPriority){
         this.priority = newPriority;
+    }
+
+    formatDate(){
+        let date = this.dueDate;
+        let dateFull = new Date(date)
+
+        // following line cancels out timezone discrepecies
+        dateFull.setTime( dateFull.getTime() + dateFull.getTimezoneOffset()*60*1000 );
+        
+        let formattedDate = format(dateFull, 'MMMM dd, yyyy');
+        // this.dueDate = formattedDate;
+        return formattedDate;
+
     }
 }

@@ -1,6 +1,7 @@
 import { inbox } from ".";
 import Inbox from "./inbox";
 import Task from "./task";
+import format from 'date-fns/format'
 
 export default function populateModule(project){
 
@@ -11,10 +12,40 @@ export default function populateModule(project){
         input.id = 'newTaskInput';
         
         
+        
+
+        // date
+        let dateContainer = document.createElement('div');
+        dateContainer.id = 'dateContainer';
+        let dateLabel = document.createElement('div');
+        dateLabel.innerHTML = 'Date: ';
+        let dateInput = document.createElement('input');
+        dateInput.type = 'date';
+        dateContainer.appendChild(dateLabel);
+        dateContainer.appendChild(dateInput);
+
+
+        // priority
+        let priorityContainer = document.createElement('div');
+
+        
+      
+
         let add_btn = document.createElement('button');
         add_btn.addEventListener('click', () => {
-            let newTask1 = new Task(input.value, '', 11, 'none', project.name);
-            let newTask2 = new Task(input.value, '', 11, 'none', project.name);
+            let dateVal;
+            if (!dateInput.value){
+                // dateVal = new Date();
+                dateVal = format(new Date(), 'MMMM dd, yyyy');
+            }
+            else {
+                let temp = dateInput.value;
+                let fullDate = new Date(temp);
+                fullDate.setTime( fullDate.getTime() + fullDate.getTimezoneOffset()*60*1000 );
+                dateVal = format(fullDate, 'MMMM dd, yyyy');
+            }
+            let newTask1 = new Task(input.value, '', dateVal, 'none', project.name);
+            let newTask2 = new Task(input.value, '', dateVal, 'none', project.name);
             inbox.addTask(newTask1);
             project.addTask(newTask2);
             let taskGrid = document.querySelector('.taskGrid');
@@ -27,15 +58,18 @@ export default function populateModule(project){
             taskGrid.removeChild(form);
             populateModule(project);
         })
+
         add_btn.id = 'add_btn';
         add_btn.innerHTML = "Add"
         cancel_btn.id = 'cancel_btn';
         cancel_btn.innerHTML = "Cancel"
         form.appendChild(input);
+        form.appendChild(dateContainer);
+        form.appendChild(priorityContainer);
         form.appendChild(add_btn);
         form.appendChild(cancel_btn);
 
-      
+
 
         return form;
     }
@@ -57,9 +91,11 @@ export default function populateModule(project){
     taskGrid.classList.add('taskGrid');
     content.appendChild(taskGrid);
 
+    // sort array
+    project.sortTasks();
     project.taskArray.forEach(task => {
 
-        
+        // <input type="date" class="input-due-date active" data-input-due-date=""></input>
 
         
         let currentTask = document.createElement('div');
@@ -69,10 +105,13 @@ export default function populateModule(project){
         priorityBtn.classList.add('priorityBtn');
         let taskName = document.createElement('div')
         taskName.classList.add('taskName');
+
         taskName.innerHTML = task.getName();
-        let taskDate = document.createElement('div')
-        taskDate.classList.add('taskDate');
+        let taskDate = document.createElement('div');
         taskDate.innerHTML = task.getDueDate();
+        taskDate.classList.add('taskDate');
+        
+    
 
         currentTask.appendChild(priorityBtn);
         currentTask.appendChild(taskName);

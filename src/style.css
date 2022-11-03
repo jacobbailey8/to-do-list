@@ -230,6 +230,8 @@ hr {
     height: 15%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .taskGrid {
@@ -248,7 +250,7 @@ hr {
 
 .task {
     display: grid;
-    grid-template-columns: 1fr 12fr 2fr;
+    grid-template-columns: 1fr 10fr 4fr;
 }
 
 .task > div {
@@ -277,7 +279,8 @@ hr {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     border-radius: 8px;
-    gap: 4%;
+    column-gap: 4%;
+    row-gap: 8%;
 }
 
 #newTaskInput {
@@ -298,4 +301,11 @@ hr {
     grid-column: 2;
     background-color: rgb(233, 80, 80);
     border-radius: 8px;
+}
+
+#dateContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
 }
