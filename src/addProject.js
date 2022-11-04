@@ -1,5 +1,5 @@
-import { inbox } from '.';
-import Icon from './hammer.png';
+import { inbox, today, week } from '.';
+import Icon from './filter-variant.png';
 import populateModule from './populateModule';
 
 export default function addProject(project) {
@@ -33,6 +33,8 @@ export default function addProject(project) {
     cancelBtn.addEventListener('click', () => {
         projects.removeChild(newProject);
         inbox.removeProject(project.name);
+        today.removeProject(project.name);
+        week.removeProject(project.name);
         populateModule(inbox);
     });
 }

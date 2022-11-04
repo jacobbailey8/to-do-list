@@ -7,6 +7,7 @@ export default class Task {
         this.dueDate = dueDate;
         this.priority = priority;
         this.projectName = projectName;
+        
     }
 
     getName() {
@@ -37,16 +38,5 @@ export default class Task {
         this.priority = newPriority;
     }
 
-    formatDate(){
-        let date = this.dueDate;
-        let dateFull = new Date(date)
-
-        // following line cancels out timezone discrepecies
-        dateFull.setTime( dateFull.getTime() + dateFull.getTimezoneOffset()*60*1000 );
-        
-        let formattedDate = format(dateFull, 'MMMM dd, yyyy');
-        // this.dueDate = formattedDate;
-        return formattedDate;
-
-    }
+    
 }

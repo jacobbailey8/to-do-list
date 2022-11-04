@@ -1,7 +1,10 @@
-import { inbox } from ".";
+import { inbox, week, today } from ".";
 import Inbox from "./inbox";
 import Task from "./task";
 import format from 'date-fns/format'
+import add from 'date-fns/add'
+import { isBefore, isThisWeek, parseISO } from "date-fns";
+import addDays from 'date-fns/addDays'
 
 export default function populateModule(project){
 
@@ -10,6 +13,7 @@ export default function populateModule(project){
         form.id = 'taskForm';
         let input = document.createElement('input');
         input.id = 'newTaskInput';
+        input.placeholder = 'Task Name';
         
         
         
@@ -27,6 +31,40 @@ export default function populateModule(project){
 
         // priority
         let priorityContainer = document.createElement('div');
+        priorityContainer.classList.add('priorityContainer')
+        let priorityLabel = document.createElement('div');
+        priorityLabel.innerHTML = 'Priority:';
+        priorityContainer.appendChild(priorityLabel);
+        let options = document.createElement('div');
+        options.id = 'options';
+        priorityContainer.appendChild(options);
+
+        let labelHigh = document.createElement('div');
+        labelHigh.innerHTML = "High";
+        let highInput = document.createElement('input');
+        highInput.type = 'radio';
+        highInput.name = 'priority';
+        highInput.value = 'high';
+        options.appendChild(labelHigh);
+        options.appendChild(highInput);
+
+        let labelMed = document.createElement('div');
+        labelMed.innerHTML = "Medium";
+        let medInput = document.createElement('input');
+        medInput.type = 'radio';
+        medInput.name = 'priority';
+        medInput.value = 'medium';
+        options.appendChild(labelMed);
+        options.appendChild(medInput);
+
+        let labelLow = document.createElement('div');
+        labelLow.innerHTML = "Low";
+        let lowInput = document.createElement('input');
+        lowInput.type = 'radio';
+        lowInput.name = 'priority';
+        lowInput.value = 'low';
+        options.appendChild(labelLow);
+        options.appendChild(lowInput);
 
         
       
@@ -35,7 +73,7 @@ export default function populateModule(project){
         add_btn.addEventListener('click', () => {
             let dateVal;
             if (!dateInput.value){
-                // dateVal = new Date();
+                
                 dateVal = format(new Date(), 'MMMM dd, yyyy');
             }
             else {
@@ -44,10 +82,32 @@ export default function populateModule(project){
                 fullDate.setTime( fullDate.getTime() + fullDate.getTimezoneOffset()*60*1000 );
                 dateVal = format(fullDate, 'MMMM dd, yyyy');
             }
-            let newTask1 = new Task(input.value, '', dateVal, 'none', project.name);
-            let newTask2 = new Task(input.value, '', dateVal, 'none', project.name);
+
+            let priorityButtons = document.querySelectorAll('input[name="priority"]');
+            let selectedPriority;
+            priorityButtons.forEach(button => {
+                if (button.checked){
+                    selectedPriority = button.value;
+                }
+                
+            });
+
+
+            let newTask1 = new Task(input.value, '', dateVal, selectedPriority, project.name);
+            let newTask2 = new Task(input.value, '', dateVal, selectedPriority, project.name);
+            let newTask3 = new Task(input.value, '', dateVal, selectedPriority, project.name);
+            let newTask4 = new Task(input.value, '', dateVal, selectedPriority, project.name);
             inbox.addTask(newTask1);
             project.addTask(newTask2);
+
+            let todayDate = format(new Date(), 'MMMM dd, yyyy');
+            if (dateVal == todayDate){
+                today.addTask(newTask4);
+            }
+            if (isThisWeek(parseISO(dateVal)),  { weekStartsOn: 0 }){
+                week.addTask(newTask3);
+            }
+
             let taskGrid = document.querySelector('.taskGrid');
             taskGrid.removeChild(form);
             populateModule(project);
@@ -93,19 +153,47 @@ export default function populateModule(project){
 
     // sort array
     project.sortTasks();
+    inbox.sortTasks();
+    week.sortTasks();
+    today.sortTasks();
+
     project.taskArray.forEach(task => {
 
-        // <input type="date" class="input-due-date active" data-input-due-date=""></input>
-
+       
         
         let currentTask = document.createElement('div');
         currentTask.classList.add('task');
 
         let priorityBtn = document.createElement('div')
         priorityBtn.classList.add('priorityBtn');
+        let priorityCircle = document.createElement('div');
+        if (task.priority == 'high'){
+            priorityCircle.classList.add('circleRed');
+        }else if (task.priority == 'medium'){
+            priorityCircle.classList.add('circleYellow');
+        }else {
+            priorityCircle.classList.add('circleGreen');
+        }
+        priorityBtn.appendChild(priorityCircle);
+
+        priorityCircle.addEventListener('click', () => {
+            inbox.removeTask(task.name);
+            today.removeTask(task.name);
+            week.removeTask(task.name);
+            project.removeTask(task.name);
+            populateModule(project);
+        })
+       
+
+        
+
+
+
+
+
+
         let taskName = document.createElement('div')
         taskName.classList.add('taskName');
-
         taskName.innerHTML = task.getName();
         let taskDate = document.createElement('div');
         taskDate.innerHTML = task.getDueDate();
@@ -129,7 +217,7 @@ export default function populateModule(project){
     plusSign.classList.add('priorityBtn');
     plusSign.id = 'plusBtn';
     plusSign.innerHTML = '+';
-    plusSign.addEventListener('click', () => {
+    addTaskBtn.addEventListener('click', () => {
 
         // remove add task text div
         let addDiv = document.getElementById('addTaskButton');
@@ -147,7 +235,7 @@ export default function populateModule(project){
     addTaskBtn.appendChild(plusSign);
     addTaskBtn.appendChild(addTaskText);
 
-    if (project.name != "Inbox"){
+    if (project.name != "Inbox" && project.name != "Today" && project.name != "This Week"){
         taskGrid.appendChild(addTaskBtn);
     }
     

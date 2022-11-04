@@ -11,11 +11,45 @@ import Week from './week'
 
 
 // create inbox, today, and week objects
-const inbox = new Inbox("Inbox")
+const inbox = new Inbox("Inbox");
+const today = new Today("Today");
+const week = new Week("This Week");
 
+const todayDiv = document.getElementById('today');
+const weekDiv = document.getElementById('this-week');
 const inboxDiv = document.getElementById('inbox');
+
 inboxDiv.addEventListener('click', () => {
     populateModule(inbox);
+    inboxDiv.style.backgroundColor = '#ccc';
+    todayDiv.style.backgroundColor = 'transparent';
+    weekDiv.style.backgroundColor = 'transparent';
+
+    inboxDiv.style.fontFamily = 'Roboto-Bold';
+    todayDiv.style.fontFamily = 'Roboto';
+    weekDiv.style.fontFamily = 'Roboto';
+    
+})
+todayDiv.addEventListener('click', () => {
+    populateModule(today);
+    todayDiv.style.backgroundColor = '#ccc';
+    inboxDiv.style.backgroundColor = 'transparent';
+    weekDiv.style.backgroundColor = 'transparent';
+
+    todayDiv.style.fontFamily = 'Roboto-Bold';
+    inboxDiv.style.fontFamily = 'Roboto';
+    weekDiv.style.fontFamily = 'Roboto';
+    
+})
+weekDiv.addEventListener('click', () => {
+    populateModule(week);
+    weekDiv.style.backgroundColor = '#ccc';
+    todayDiv.style.backgroundColor = 'transparent';
+    inboxDiv.style.backgroundColor = 'transparent';
+
+    weekDiv.style.fontFamily = 'Roboto-Bold';
+    todayDiv.style.fontFamily = 'Roboto';
+    inboxDiv.style.fontFamily = 'Roboto';
 })
 
 const projects = document.getElementById('projects');
@@ -50,6 +84,7 @@ function makeProjectForm(){
     form.classList.add('form-container');
     let input = document.createElement('input');
     input.id = 'check';
+    input.placeholder = 'Project Name';
     let buttonContainer = document.createElement('div');
     buttonContainer.classList.add('project-buttons');
     let check = document.createElement('button');
@@ -83,4 +118,4 @@ function makeProjectForm(){
     
 }
 
-export {inbox};
+export {inbox, today, week};
