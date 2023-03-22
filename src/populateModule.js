@@ -1,10 +1,7 @@
 import { inbox, week, today } from ".";
-import Inbox from "./inbox";
 import Task from "./task";
 import format from 'date-fns/format'
-import add from 'date-fns/add'
-import { isBefore, isThisWeek, parseISO } from "date-fns";
-import addDays from 'date-fns/addDays'
+import { isThisWeek, parseISO } from "date-fns";
 
 export default function populateModule(project){
 

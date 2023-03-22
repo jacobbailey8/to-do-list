@@ -1,5 +1,5 @@
 import { inbox, today, week } from '.';
-import Icon from './filter-variant.png';
+import Icon from './assets/img/filter-variant.png';
 import populateModule from './populateModule';
 
 export default function addProject(project) {

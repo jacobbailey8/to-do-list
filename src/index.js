@@ -3,7 +3,6 @@ import Inbox from './inbox'
 import populateModule from './populateModule'
 import Project from './project'
 import './style.css'
-import Task from './task'
 import Today from './today'
 import Week from './week'
 

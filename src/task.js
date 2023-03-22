@@ -1,4 +1,4 @@
-import format from 'date-fns/format'
+
 export default class Task {
 
     constructor(name, description, dueDate, priority, projectName){
