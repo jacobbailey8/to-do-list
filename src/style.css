@@ -1,430 +1,401 @@
 @font-face {
-    font-family: Roboto;
-    src: url('../assets/Roboto/Roboto-Regular.ttf');
+  font-family: Roboto;
+  src: url("../assets/Roboto/Roboto-Regular.ttf");
 }
-
 @font-face {
-    font-family: Roboto-Bold;
-    src: url('../assets/Roboto/Roboto-Bold.ttf');
+  font-family: Roboto-Bold;
+  src: url("../assets/Roboto/Roboto-Bold.ttf");
 }
-
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-
 
 body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Roboto', sans-serif
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
 }
 
 .head {
-    width: 100%;
-    height: 15%;
-    background-color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 2%;
-    gap: 1%;
-    color: #eee;
-    font-size: 4rem;
-    font-weight: bold;
-    font-family: 'Yusei Magic', sans-serif;
-    font-size: 40px;
+  width: 100%;
+  height: 15%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2%;
+  gap: 1%;
+  color: #eee;
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: "Yusei Magic", sans-serif;
+  font-size: 40px;
 }
 
 .main {
-    display: flex;
-    width: 100%;
-    height: 85%;
+  display: flex;
+  width: 100%;
+  height: 85%;
 }
 
 .sidebar {
-    width: calc(max(25%, 220px));
-    height: 100%;
-    background-color: #ddd;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: max(25%, 220px);
+  height: 100%;
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #main-view {
-    width: 80%;
-    height: 100%;
-    /* background-color: rgb(252, 252, 252); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 80%;
+  height: 100%;
+  /* background-color: rgb(252, 252, 252); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #main-tabs {
-    margin-top: 8%;
-    height: calc(max(100px, 20%));
-    width: 80%;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
- 
-    
-  
+  margin-top: 8%;
+  height: max(100px, 20%);
+  width: 80%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
 }
 
 #main-tabs > div {
-   
-    display: grid;
-    grid-template-columns: 25% auto;
+  display: grid;
+  grid-template-columns: 25% auto;
 }
 
 #main-tabs > div:hover {
-   background-color: #ccc;
+  background-color: #ccc;
 }
 
 .main-icon {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .main-label {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 5px;
-    /* color: white; */
-    
-    font-size: 16px;
-    font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5px;
+  /* color: white; */
+  font-size: 16px;
+  font-family: inherit;
 }
 
 .main-label:hover {
-    font-family: 'Roboto-Bold';
-    text-decoration: underline;
+  font-family: "Roboto-Bold";
+  text-decoration: underline;
 }
 
 .main-tab {
-    border-radius: 4px;
-    width: 155px;
+  border-radius: 4px;
+  width: 155px;
 }
+
 .main-tab:hover {
-    background-color: #ccc;
-    cursor: pointer;
+  background-color: #ccc;
+  cursor: pointer;
 }
 
 h2 {
-    font-family: 'Roboto-Bold', sans-serif;
-    margin-left: 4%;
-    margin-top: 10%;
-    margin-bottom: 8%;
+  font-family: "Roboto-Bold", sans-serif;
+  margin-left: 4%;
+  margin-top: 10%;
+  margin-bottom: 8%;
 }
+
 #projects {
-    width: 90%;
-    height: 62%;
-    margin-top: 4%;
-    padding-left: 4%;
-    display: flex;
-    flex-direction: column;
-   
+  width: 90%;
+  height: 62%;
+  margin-top: 4%;
+  padding-left: 4%;
+  display: flex;
+  flex-direction: column;
 }
 
 #addProject {
-    /* margin-left: 6%; */
-    margin-top: 6%;
-    /* color: white; */
-    border-radius: 5px;
-    height: 12%;
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    padding: 4px;
-    margin-left: 10px;
+  /* margin-left: 6%; */
+  margin-top: 6%;
+  /* color: white; */
+  border-radius: 5px;
+  height: 12%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 4px;
+  margin-left: 10px;
 }
 
 #addProject:hover {
-    background-color: #ccc;
-    cursor: pointer;
-    font-family: 'Roboto-Bold';
+  background-color: #ccc;
+  cursor: pointer;
+  font-family: "Roboto-Bold";
 }
 
 .newProject {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    height: 12%;
-    width: 95%;
-    font-size: 16px;
-    /* color: white; */
-    border-radius: 4px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  height: 12%;
+  width: 95%;
+  font-size: 16px;
+  /* color: white; */
+  border-radius: 4px;
 }
 
-
-
 .labelDiv {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .labelDiv:hover {
-    font-family: 'Roboto-Bold';
-    text-decoration: underline;
+  font-family: "Roboto-Bold";
+  text-decoration: underline;
 }
 
 .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cancel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* font-size: 15px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-size: 15px; */
 }
 
 .cancel:hover {
-    background-color: #ccc;
-    border-radius: 25px;
-    cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 hr {
-    /* color: white; */
-    width: 80%;
-    
+  /* color: white; */
+  width: 80%;
 }
 
 .form-container {
-    background-color: none;
-    width: 90%;
-    height: max(150px, 15%);
-    border-radius: 8px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center; */
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    margin-left: 4%;
-
+  background-color: none;
+  width: 90%;
+  height: max(150px, 15%);
+  border-radius: 8px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-left: 4%;
 }
 
 .form-container > input {
-    width: 100%;
-    height: 50%;
-    border-radius: 4px;
-    display: flex;
-    grid-column: 1 / -1;
-    align-self: center;
-    border: none;
+  width: 100%;
+  height: 50%;
+  border-radius: 4px;
+  display: flex;
+  grid-column: 1/-1;
+  align-self: center;
+  border: none;
 }
 
-.project-buttons{
-    height: 50%;
-    width: 100%;
-    grid-column: 1 / -1;
-    /* display: grid;
-    grid-template-columns: repeat(2, 1fr); */
-    display: flex;
-    justify-content: space-between;
-   
-   
-    
+.project-buttons {
+  height: 50%;
+  width: 100%;
+  grid-column: 1/-1;
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr); */
+  display: flex;
+  justify-content: space-between;
 }
-
 
 #project-check {
-    background-color: #aaffaa;
-    height: 100%;
-    width: 45%;
-    border: none;
-    border-radius: 4px;
+  background-color: #aaffaa;
+  height: 100%;
+  width: 45%;
+  border: none;
+  border-radius: 4px;
 }
 
 #project-cancel {
-    background-color: #ffbebe;
-    height: 100%;
-    width: 45%;
-    border: none;
-    border-radius: 4px;
+  background-color: #ffbebe;
+  height: 100%;
+  width: 45%;
+  border: none;
+  border-radius: 4px;
 }
 
 .content {
-    /* border: 1px solid black; */
-    height: 100%;
-    width: 75%;
-    
-    display: flex;
-    flex-direction: column;
-
+  /* border: 1px solid black; */
+  height: 100%;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
 }
 
 #projectHeader {
-    font-size: 3rem;
-    height: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+  font-size: 3rem;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .taskGrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 50px;
-    width: 100%;
-    height: 80%;
-
-    
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 50px;
+  width: 100%;
+  height: 80%;
 }
 
-
 .task {
-    display: grid;
-    grid-template-columns: 1fr 10fr 4fr;
+  display: grid;
+  grid-template-columns: 1fr 10fr 4fr;
 }
 
 .task > div {
-    /* border: 1px solid black; */
-    display: flex;
-    align-items: center;
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
 }
 
 .priorityBtn,
 .taskDate {
-    justify-content: center;
+  justify-content: center;
 }
 
 #addTaskButton {
-    margin-top: 4px;
-    font-family: 'Roboto-Bold';
+  margin-top: 4px;
+  font-family: "Roboto-Bold";
 }
+
 #addTaskButton:hover {
-    background-color: #ccc;
-    cursor: pointer;
-    text-decoration: underline;
-    border-radius: 8px;
+  background-color: #ccc;
+  cursor: pointer;
+  text-decoration: underline;
+  border-radius: 8px;
 }
 
-
-.labelDiv:hover{
-    cursor: pointer;
+.labelDiv:hover {
+  cursor: pointer;
 }
 
 #taskForm {
-    grid-row: span 2;
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    border-radius: 8px;
-    column-gap: 4%;
-    row-gap: 8%;
+  grid-row: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  border-radius: 8px;
+  -moz-column-gap: 4%;
+       column-gap: 4%;
+  row-gap: 8%;
 }
 
 #newTaskInput {
-    grid-column: 1 / -1;
-    border-radius: 8px;
-    border: 1px solid black;
-
-    
+  grid-column: 1/-1;
+  border-radius: 8px;
+  border: 1px solid black;
 }
 
-
-
-#add_btn{
-
-    grid-column: 1;
-    background-color: #aaffaa;
-    border-radius: 8px;
+#add_btn {
+  grid-column: 1;
+  background-color: #aaffaa;
+  border-radius: 8px;
 }
 
-#cancel_btn{
-    grid-column: 2;
-    background-color: #ffbebe;
-    border-radius: 8px;
+#cancel_btn {
+  grid-column: 2;
+  background-color: #ffbebe;
+  border-radius: 8px;
 }
 
 #dateContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-
-
 #options {
-    display: flex;
-    align-items: center;
-    gap: 2%;
+  display: flex;
+  align-items: center;
+  gap: 2%;
 }
 
 .priorityContainer {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .circleRed {
-    height: 10px;
-    width: 10px;
-    border: 1px solid red;
-    border-radius: 50%;
-    background-color: red;
+  height: 10px;
+  width: 10px;
+  border: 1px solid red;
+  border-radius: 50%;
+  background-color: red;
 }
 
 .circleRed:hover,
 .circleYellow:hover,
 .circleGreen:hover {
-    background-color: rgb(252, 252, 252);
-    cursor: pointer;
+  background-color: rgb(252, 252, 252);
+  cursor: pointer;
 }
 
 .circleYellow {
-    height: 10px;
-    width: 10px;
-    border: 1px solid rgb(200, 200, 14);
-    border-radius: 50%;
-    background-color: rgb(200, 200, 14);
+  height: 10px;
+  width: 10px;
+  border: 1px solid rgb(200, 200, 14);
+  border-radius: 50%;
+  background-color: rgb(200, 200, 14);
 }
 
 .circleGreen {
-    height: 10px;
-    width: 10px;
-    border: 1px solid green;
-    border-radius: 50%;
-    background-color: green;
+  height: 10px;
+  width: 10px;
+  border: 1px solid green;
+  border-radius: 50%;
+  background-color: green;
 }
 
 #projectHeader {
-    font-family: 'Roboto-Bold';
+  font-family: "Roboto-Bold";
 }
 
 button {
-    font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
 button:hover {
-    cursor: pointer;
-    box-shadow: 10px 10px 10px #ccc;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px #ccc;
 }
-
 
 input {
-    padding-left: 8px;
+  padding-left: 8px;
 }
+
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 button {
   border: none;
-}
-  
+}/*# sourceMappingURL=style.css.map */
